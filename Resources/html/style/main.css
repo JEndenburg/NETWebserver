@@ -1,0 +1,71 @@
+:root
+{
+    --primary-tint: rgb(55, 44, 211);
+    --secondary-tint: rgb(163, 206, 231);
+
+    --header-height: 80px;
+    --logo-size: 64px;
+}
+
+body
+{
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+header
+{
+    position: fixed;
+    background-color: var(--primary-tint);
+    height: var(--header-height);
+    top: 0px;
+    width: 100%;
+}
+
+header #site-name
+{
+    position: absolute;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    left: calc(var(--logo-size) * 2);
+    top: 16px;
+}
+
+header #site-logo
+{
+    position: absolute;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    margin: 10px;
+}
+
+main
+{
+    width: 75vw;
+    margin: auto;
+    margin-top: var(--header-height);
+    padding-top: 10px;
+}
+
+article
+{
+    margin-top: 10px;
+    padding: 0.75rem;
+    background-color: var(--secondary-tint);
+    border-radius: 10px;
+    width: 100%;
+    border-color: var(--secondary-tint);
+    border-style: outset;
+    border-width: 1px;
+}
+
+article .title
+{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-color: var(--primary-tint);
+    border-style: none none solid none;
+    border-width: 2px;
+}
