@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 
-namespace NETWebserver
+namespace NETWebserver.Domain
 {
     public class RequestReader
     {

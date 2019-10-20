@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Threading.Tasks;
-using System.Net;
 using System.Net.Sockets;
 
-namespace NETWebserver
+namespace NETWebserver.Domain
 {
     public class ConnectionHandler
     {
         private TcpClient connection;
 
-        private ConnectionHandler(TcpClient connection)
+        public ConnectionHandler(TcpClient connection)
         {
             this.connection = connection;
         }
 
-        private void HandleConnection()
+        public void HandleConnection()
         {
             NetworkStream stream = connection.GetStream();
             Request request = GetRequest(stream, connection.ReceiveBufferSize);
@@ -35,18 +33,6 @@ namespace NETWebserver
             byte[] buffer = new byte[bufferLength];
             stream.Read(buffer, 0, bufferLength);
             return new RequestReader().ReadRequest(buffer);
-        }
-
-        public static void Main(params String[] args)
-        {
-            TcpListener listener = new TcpListener(IPAddress.Loopback, 80);
-            listener.Start();
-
-            while(true)
-            {
-                TcpClient client = listener.AcceptTcpClient();
-                Task.Run(() => new ConnectionHandler(client).HandleConnection());
-            }
         }
     }
 }
